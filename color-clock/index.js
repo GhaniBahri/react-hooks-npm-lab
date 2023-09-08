@@ -2,10 +2,14 @@
 //If package.json and the proper modules are installed in the correct location, this should display correctly in the browser.
 import format from "./node_modules/date-fns/esm/format/index.js";
 
+document.addEventListener('DOMContentLoaded', ()=>{
+
+
 function displayTime() {
   const clock = document.querySelector("#clock");
   clock.textContent = format(new Date(), "MMMM do yyyy, h:mm:ss a");
   setInterval(function () {
+    console.log(clock.textContent)
     clock.textContent = format(new Date(), "MMMM do yyyy, h:mm:ss a");
     clock.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
     clock.style.backgroundColor =
@@ -14,3 +18,6 @@ function displayTime() {
 }
 
 displayTime();
+
+})
+
